@@ -79,7 +79,25 @@
 # 実行結果
 以下のリンクから実行した様子を見ることができます。
 
+https://youtu.be/RhaW0Xidp94
+
 # ライセンス
 GNU General Public License v3.0
 
 # コントリビューション
+yuzukiimaiさんのREADMEの書き方を参考にさせていただきました。
+
+以下のリンクがyuzukiimaiさんのものです。ありがとうございました。
+
+https://github.com/yuzukiimai/robosys1
+
+以下のサイトでREADMEの書き方を参考にしました。ありがとうございました。
+
+https://notepm.jp/help/markdown-table
+
+ryuichiuedaさんのコードをベースに改造しました。
+
+以下のリンクがryuichiuedaさんのものです。ありがとうございました。
+
+https://github.com/ryuichiueda
+
