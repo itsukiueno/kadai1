@@ -4,7 +4,6 @@
 #include<linux/device.h>
 #include<linux/uaccess.h>
 #include<linux/io.h>
-#include<linux/delay.h>
 
 MODULE_AUTHOR("Itsuki Ueno & Ryuichi Ueda ");
 MODULE_DESCRIPTION("driver for LED control");
@@ -26,257 +25,66 @@ static ssize_t led_write(struct file* filp, const char* buf, size_t count, loff_
 //	printk(KERN_INFO "receive %c\n", c);
 	
 	if(c == '0'){
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 24;
-		gpio_base[10] = 1 << 21;
-		gpio_base[10] = 1 << 19;	
+		gpio_base[10] = 1 << 3;
+		gpio_base[10] = 1 << 27;
+		gpio_base[10] = 1 << 8;
+		gpio_base[10] = 1 << 21;	
 	}
 	
 	else if(c == '1'){
-		gpio_base[7] = 1 << 25;
-		gpio_base[10] = 1 << 24;
+		gpio_base[7] = 1 << 3;
+		gpio_base[10] = 1 << 27;
+		gpio_base[10] = 1 << 8;
 		gpio_base[10] = 1 << 21;
-		gpio_base[10] = 1 << 19;
 	}
 	
 	else if(c == '2'){
-		gpio_base[10] = 1 << 25;
-		gpio_base[7] = 1 << 24;
+		gpio_base[10] = 1 << 3;
+		gpio_base[7] = 1 << 27;
+		gpio_base[10] = 1 << 8;
 		gpio_base[10] = 1 << 21;
-		gpio_base[10] = 1 << 19;
 
 	}
 	
 	else if(c == '3'){
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 24;
-		gpio_base[7] = 1 << 21;
-		gpio_base[10] = 1 << 19;
+		gpio_base[10] = 1 << 3;
+		gpio_base[10] = 1 << 27;
+		gpio_base[7] = 1 << 8;
+		gpio_base[10] = 1 << 21;
 	}
 	
 	else if(c == '4'){
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 24;
-		gpio_base[10] = 1 << 21;
-		gpio_base[7] = 1 << 19;
+		gpio_base[10] = 1 << 3;
+		gpio_base[10] = 1 << 27;
+		gpio_base[10] = 1 << 8;
+		gpio_base[7] = 1 << 21;
 
 	}	
 	
 	else if(c == '5'){
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 24;
-		gpio_base[7] = 1 << 21;
-		gpio_base[7] = 1 << 19;
+		gpio_base[7] = 1 << 3;
+		gpio_base[7] = 1 << 27;
+		gpio_base[7] = 1 << 8;
+		gpio_base[7] = 1 <<21;
 
 	}
 
 	else if(c == '6'){
-		for(k=0;k<5;k++)
-		{	
-			gpio_base[7] = 1 << 25;
-			gpio_base[10] = 1 << 24;
-			gpio_base[7] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[10] = 1 << 25;
-			gpio_base[7] = 1 << 24;
-			gpio_base[10] = 1 << 21;
-			gpio_base[7] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[10] = 1 << 25;
-			gpio_base[7] = 1 << 24;
-			gpio_base[7] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[7] = 1 << 25;
-			gpio_base[10] = 1 << 24;
-			gpio_base[10] = 1 << 21;
-			gpio_base[7] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[7] = 1 << 25;
-			gpio_base[7] = 1 << 24;
-			gpio_base[10] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[10] = 1 << 25;
-			gpio_base[10] = 1 << 24;
-			gpio_base[7] = 1 << 21;
-			gpio_base[7] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[10] = 1 << 21;
-			gpio_base[10] = 1 << 19;
+		gpio_base[7] = 1 << 3;
+		gpio_base[10] = 1 << 27;
+		gpio_base[7] = 1 << 8;
+		gpio_base[10] = 1 << 21;
 
-
-		}
-	}	
-
-	else if(c == '7'){
-		for(k=0;k<2;k++)
-		{	
-			gpio_base[7] = 1 << 25;
-			gpio_base[10] = 1 << 24;
-			gpio_base[10] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[10] = 1 << 25;
-			gpio_base[7] = 1 << 24;
-			gpio_base[10] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[10] = 1 << 25;
-			gpio_base[10] = 1 << 24;
-			gpio_base[7] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[10] = 1 << 25;
-			gpio_base[10] = 1 << 24;
-			gpio_base[10] = 1 << 21;
-			gpio_base[7] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[10] = 1 << 25;
-			gpio_base[10] = 1 << 24;
-			gpio_base[7] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[10] = 1 << 25;
-			gpio_base[7] = 1 << 24;
-			gpio_base[10] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[7] = 1 << 25;
-                    	gpio_base[10] = 1 << 24;
-			gpio_base[10] = 1 << 21;
-			gpio_base[19] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[7] = 1 << 25;
-			gpio_base[7] = 1 << 24;
-			gpio_base[10] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[7] = 1 << 25;
-			gpio_base[7] = 1 << 24;
-			gpio_base[7] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[7] = 1 << 25;
-			gpio_base[7] = 1 << 24;
-			gpio_base[7] = 1 << 21;
-			gpio_base[7] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[7] = 1 << 25;
-			gpio_base[7] = 1 << 24;
-			gpio_base[7] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[7] = 1 << 25;
-			gpio_base[7] = 1 << 24;
-			gpio_base[10] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[7] = 1 << 25;
-			gpio_base[10] = 1 << 24;
-			gpio_base[10] = 1 << 21;
-			gpio_base[10] = 1 << 19;
-			__delay(10*1000*1000);
-			gpio_base[10] = 1 << 25;
-
-
-		}
-	}	
-
-	else if(c == '8'){
-		for(k=0;k<5;k++)
-		{	
-			gpio_base[7] = 1 << 24;
-			gpio_base[7] = 1 << 2;
-                        __delay(5*1000*1000);
-			gpio_base[10] = 1 << 24;
-			gpio_base[10] = 1 << 2;
-			__delay(5*1000*1000);
-
-		}
 	}
 
-	else if(c == '9'){
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(2*1000*1000);
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-	        __delay(2*1000*1000);
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(2*1000*1000);
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-	        __delay(2*1000*1000);
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(4*1000*1000);
+	else if(c == '7'){
+		gpio_base[10] = 1 << 3;
+		gpio_base[7] = 1 << 27;
+		gpio_base[10] = 1 << 8;
+		gpio_base[7] = 1 << 21;
 
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-		__delay(3*1000*1000);
-
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(2*1000*1000);
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-		__delay(2*1000*1000);
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(4*1000*1000);
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-		__delay(2*1000*1000);
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(2*1000*1000);
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-		__delay(2*1000*1000);
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(4*1000*1000);
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-		__delay(2*1000*1000);
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(2*1000*1000);
-
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-		__delay(3*1000*1000);
-
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(4*1000*1000);
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-		__delay(2*1000*1000);
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(4*1000*1000);
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-		__delay(2*1000*1000);
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(4*1000*1000);
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-		__delay(2*1000*1000);
-		gpio_base[7] = 1 << 25;
-		gpio_base[7] = 1 << 2;
-		__delay(4*1000*1000);
-		gpio_base[10] = 1 << 25;
-		gpio_base[10] = 1 << 2;
-		__delay(2*1000*1000);
-		
-	
-	}	
+	}
+			
 
 	return 1;
 }
@@ -327,35 +135,29 @@ static int __init init_mod(void)
 
 	gpio_base = ioremap_nocache(0x3f200000, 0xA0);
 
-	const u32 led1 = 25;
+	const u32 led1 = 3;
 	const u32 index1 = led1/10;
 	const u32 shift1 = (led1%10)*3;
 	const u32 mask1 = ~(0x7 << shift1);
 	gpio_base[index1] = (gpio_base[index1] & mask1) | (0x1 << shift1);
 
-	const u32 led2 = 24;
+	const u32 led2 = 27;
 	const u32 index2 = led2/10;
 	const u32 shift2 = (led2%10)*3;
 	const u32 mask2 = ~(0x7 << shift2);
 	gpio_base[index2] = (gpio_base[index2] & mask2) | (0x1 << shift2);
 
-	const u32 led3 = 21;
+	const u32 led3 = 8;
 	const u32 index3 = led3/10;
 	const u32 shift3 = (led3%10)*3;
 	const u32 mask3 = ~(0x7 << shift3);
 	gpio_base[index3] = (gpio_base[index3] & mask3) | (0x1 << shift3);
 
-	const u32 led4 = 19;
+	const u32 led4 = 21;
 	const u32 index4 = led4/10;
 	const u32 shift4 = (led4%10)*3;
 	const u32 mask4 = ~(0x7 << shift4);
 	gpio_base[index4] = (gpio_base[index4] & mask4) | (0x1 << shift4);
-
-	const u32 led5 = 2;
-	const u32 index5 = led5/10;
-	const u32 shift5 = (led5%10)*3;
-	const u32 mask5 = ~(0x7 << shift5);
-	gpio_base[index5] = (gpio_base[index5] & mask5) | (0x1 << shift5);
 
         return 0;
 }
