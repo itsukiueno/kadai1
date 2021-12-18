@@ -23,7 +23,7 @@
 
 〇LED　
 
-| aiu | eou |
+ | aiu | eou |
 | --- | --- |
 | aaa | iii |
 | uuu | eee |
